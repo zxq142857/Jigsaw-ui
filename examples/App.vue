@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div class="index" @contextmenu.prevent="$refs.rightMenu.openMenu($event)">
     <header class="face-cover">
       <div class="face-main__content">
         <!-- 头像 -->
@@ -18,7 +18,7 @@
         <div class="discription">我在Git上有一些开源的小东西，并且在掘金上总结了相关的一些收获，欢迎访问，了解更多，喜欢的可以给个Star</div>
         <!-- links -->
         <div class="navigation-buttons">
-          <button @contextmenu.prevent="rightClick ($event, 1)">博客</button>
+          <button>博客</button>
           <button>简历</button>
           <button>工具</button>
           <button>订阅</button>
@@ -31,15 +31,7 @@
       </div>
     </header>
     <!--组件-->
-    <jg-right-menu
-      :x="x_index"
-      :y="y_index"
-      :showMenu="showMenu"
-      @close="closeMenu"
-      @open="openDetail"
-      @del="delAttr"
-      @update="updateArr">
-    </jg-right-menu>
+    <jg-right-menu ref="rightMenu"></jg-right-menu>
   </div>
 </template>
 
@@ -72,19 +64,16 @@ export default {
     // 编辑回调
     updateArr () {
       // console.log('编辑')
-    },
-    rightClick ($event, item) {
-      // console.log($event)
-      this.x_index = $event.pageX
-      this.y_index = $event.pageY
-      this.ctrlId = item
-      this.showMenu = true
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
   .face-cover {
     width: 100vw;
     height: 100vh;

@@ -1,6 +1,6 @@
 {
   "name": "jigsaw-ui",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": "xiaoqiang.zhang",
   "private": false,
   "license": "MIT",
@@ -39,7 +39,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
