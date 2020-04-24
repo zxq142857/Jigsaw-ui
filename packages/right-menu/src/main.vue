@@ -46,8 +46,8 @@ export default {
     }
   },
   mounted () {
-    this.windowClientX = document.body.clientWidth || document.documentElement.clientWidth
-    this.windowClientY = document.body.clientHeight || document.documentElement.clientHeight
+    this.windowClientX = window.innerWidth
+    this.windowClientY = window.innerHeight
     this.$nextTick(() => {
       this.width = this.$refs.menu.clientWidth
       this.height = this.$refs.menu.clientHeight
@@ -69,7 +69,6 @@ export default {
     position: fixed;
     z-index: 9999;
     width: fit-content;
-    min-width: 200px;
     background-color: #fff;
     border-radius: 4px;
     text-align: left;
@@ -84,6 +83,7 @@ export default {
     color: #000000;
   }
   .defalut-content:hover {
+    color: #fff;
     background: #ccc;
   }
 </style>
